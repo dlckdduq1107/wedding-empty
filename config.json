@@ -1,0 +1,62 @@
+{
+  "groom": {
+    "name": "신동현",
+    "parents": "신○○ · 신○○의 아들"
+  },
+  "bride": {
+    "name": "심은비",
+    "parents": "심○○ · 심○○의 딸"
+  },
+  "wedding": {
+    "date": "2024년 10월 3일",
+    "dayOfWeek": "수요일",
+    "time": "오후 2시",
+    "venue": "장소명",
+    "address": "서울시 강남구",
+    "mapUrl": "https://maps.google.com"
+  },
+  "contact": {
+    "groomPhone": "010-0000-0000",
+    "bridePhone": "010-0000-0000",
+    "groomParentsPhone": "010-0000-0000",
+    "brideParentsPhone": "010-0000-0000"
+  },
+  "account": {
+    "groom": {
+      "bank": "국민은행",
+      "accountHolder": "신동현",
+      "accountNumber": "123-456-789012"
+    },
+    "bride": {
+      "bank": "우리은행",
+      "accountHolder": "심은비",
+      "accountNumber": "098-765-432101"
+    },
+    "groomParents": {
+      "bank": "하나은행",
+      "accountHolder": "신○○",
+      "accountNumber": "111-222-333444"
+    },
+    "brideParents": {
+      "bank": "기업은행",
+      "accountHolder": "심○○",
+      "accountNumber": "555-666-777888"
+    }
+  },
+  "gallery": [
+    "/images/photo1.jpg",
+    "/images/photo2.jpg",
+    "/images/photo3.jpg",
+    "/images/photo4.jpg"
+  ],
+  "qrCode": {
+    "enabled": true,
+    "url": "https://yourdomain.com"
+  },
+  "theme": {
+    "primaryColor": "#d4a574",
+    "backgroundColor": "#faf9f7",
+    "textColor": "#333333",
+    "accentColor": "#e8d5c4"
+  }
+}
