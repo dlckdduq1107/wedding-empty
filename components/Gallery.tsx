@@ -1,28 +1,34 @@
 import React, { useState } from 'react'
 import config from '../config.json'
 
+const PLACEHOLDER = (n: number) =>
+  `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23e8e4e0' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23aaa' text-anchor='middle' dy='.3em' font-family='sans-serif'%3EPhoto ${n}%3C/text%3E%3C/svg%3E`
+
+const INITIAL_COUNT = 9
+
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [expanded, setExpanded] = useState(false)
+
+  const photos = expanded ? config.gallery : config.gallery.slice(0, INITIAL_COUNT)
 
   return (
-    <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-        {config.gallery.map((image, idx) => (
+    <section className="section">
+      <p className="eyebrow">Gallery</p>
+      <h2 className="section-title">웨딩 갤러리</h2>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.4rem' }}>
+        {photos.map((image, idx) => (
           <div
             key={idx}
             style={{
               position: 'relative',
               width: '100%',
               aspectRatio: '1',
-              backgroundColor: '#e5e7eb',
-              borderRadius: '0.5rem',
+              backgroundColor: '#e8e4e0',
               overflow: 'hidden',
-              cursor: 'pointer',
-              opacity: 1,
-              transition: 'opacity 0.3s'
+              cursor: 'pointer'
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9' }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
             onClick={() => setSelectedImage(idx)}
           >
             <img
@@ -30,20 +36,28 @@ export default function Gallery() {
               alt={`Wedding photo ${idx + 1}`}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               onError={(e) => {
-                e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23e0e0e0' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23999' text-anchor='middle' dy='.3em'%3EPhoto ${idx + 1}%3C/text%3E%3C/svg%3E`
+                e.currentTarget.src = PLACEHOLDER(idx + 1)
               }}
             />
           </div>
         ))}
       </div>
 
-      {/* Lightbox Modal */}
+      {config.gallery.length > INITIAL_COUNT && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          style={{ marginTop: '1.25rem', fontSize: '0.82rem', color: '#888' }}
+        >
+          {expanded ? '접기 ^' : '더보기 ˅'}
+        </button>
+      )}
+
       {selectedImage !== null && (
         <div
           style={{
             position: 'fixed',
             inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
             zIndex: 50,
             display: 'flex',
             alignItems: 'center',
@@ -52,63 +66,31 @@ export default function Gallery() {
           }}
           onClick={() => setSelectedImage(null)}
         >
-          <div
-            style={{
-              position: 'relative',
-              maxWidth: '800px',
-              width: '100%'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div style={{ position: 'relative', maxWidth: '480px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
             <img
               src={config.gallery[selectedImage]}
               alt={`Wedding photo ${selectedImage + 1}`}
-              style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
+              style={{ width: '100%', height: 'auto', borderRadius: '0.25rem' }}
               onError={(e) => {
-                e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%23444' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23fff' text-anchor='middle' dy='.3em'%3EPhoto ${selectedImage + 1}%3C/text%3E%3C/svg%3E`
+                e.currentTarget.src = PLACEHOLDER(selectedImage + 1)
               }}
             />
             <button
               onClick={() => setSelectedImage(null)}
               style={{
                 position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                backgroundColor: 'white',
-                borderRadius: '50%',
-                width: '40px',
-                height: '40px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.25rem',
-                fontWeight: 'bold',
-                border: 'none',
-                cursor: 'pointer'
+                top: '-2.25rem',
+                right: 0,
+                color: '#fff',
+                fontSize: '1.25rem'
               }}
             >
               ✕
             </button>
-            {/* Navigation */}
             {selectedImage > 0 && (
               <button
                 onClick={() => setSelectedImage(selectedImage - 1)}
-                style={{
-                  position: 'absolute',
-                  left: '1rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  backgroundColor: 'white',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '1.25rem'
-                }}
+                style={{ position: 'absolute', left: '0.5rem', top: '50%', transform: 'translateY(-50%)', color: '#fff', fontSize: '1.75rem' }}
               >
                 ‹
               </button>
@@ -116,22 +98,7 @@ export default function Gallery() {
             {selectedImage < config.gallery.length - 1 && (
               <button
                 onClick={() => setSelectedImage(selectedImage + 1)}
-                style={{
-                  position: 'absolute',
-                  right: '1rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  backgroundColor: 'white',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '1.25rem'
-                }}
+                style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', color: '#fff', fontSize: '1.75rem' }}
               >
                 ›
               </button>
@@ -139,10 +106,6 @@ export default function Gallery() {
           </div>
         </div>
       )}
-
-      <div style={{ textAlign: 'center', fontSize: '0.875rem', color: config.theme.textColor }}>
-        <p>사진을 클릭하면 큰 이미지로 볼 수 있습니다</p>
-      </div>
-    </div>
+    </section>
   )
 }
