@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
-import QRCode from 'qrcode.react'
 import config from '../config.json'
 import Header from '../components/Header'
 import WeddingInfo from '../components/WeddingInfo'
@@ -21,58 +19,61 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
 
-      <main className="min-h-screen bg-wedding-bg" style={{ backgroundColor: config.theme.backgroundColor }}>
-        <div className="max-w-2xl mx-auto">
+      <main style={{ minHeight: '100vh', backgroundColor: config.theme.backgroundColor }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           {/* Header with Hero Image */}
           <Header />
 
           {/* Main Content */}
-          <div className="px-4 py-8">
+          <div style={{ padding: '2rem 1rem' }}>
             {/* Title */}
-            <div className="text-center mb-8">
-              <h1 className="text-3xl md:text-4xl font-serif font-bold mb-2" style={{ color: config.theme.textColor }}>
+            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <h1 style={{ fontSize: '2rem', fontFamily: 'serif', fontWeight: 'bold', marginBottom: '0.5rem', color: config.theme.textColor }}>
                 {config.groom.name} <span style={{ color: config.theme.primaryColor }}>♥</span> {config.bride.name}
               </h1>
-              <p className="text-sm md:text-base" style={{ color: config.theme.textColor }}>결혼합니다</p>
+              <p style={{ color: config.theme.textColor }}>결혼합니다</p>
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex gap-2 justify-center mb-6 sticky top-0 bg-wedding-bg z-10 py-4">
+            <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
               <button
                 onClick={() => setActiveTab('info')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeTab === 'info'
-                    ? 'text-white'
-                    : 'text-wedding-text'
-                }`}
                 style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  border: 'none',
                   backgroundColor: activeTab === 'info' ? config.theme.primaryColor : config.theme.accentColor,
+                  color: activeTab === 'info' ? 'white' : config.theme.textColor,
+                  cursor: 'pointer',
+                  fontSize: '1rem'
                 }}
               >
                 청장
               </button>
               <button
                 onClick={() => setActiveTab('account')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeTab === 'account'
-                    ? 'text-white'
-                    : 'text-wedding-text'
-                }`}
                 style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  border: 'none',
                   backgroundColor: activeTab === 'account' ? config.theme.primaryColor : config.theme.accentColor,
+                  color: activeTab === 'account' ? 'white' : config.theme.textColor,
+                  cursor: 'pointer',
+                  fontSize: '1rem'
                 }}
               >
                 축의금
               </button>
               <button
                 onClick={() => setActiveTab('gallery')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeTab === 'gallery'
-                    ? 'text-white'
-                    : 'text-wedding-text'
-                }`}
                 style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  border: 'none',
                   backgroundColor: activeTab === 'gallery' ? config.theme.primaryColor : config.theme.accentColor,
+                  color: activeTab === 'gallery' ? 'white' : config.theme.textColor,
+                  cursor: 'pointer',
+                  fontSize: '1rem'
                 }}
               >
                 갤러리
@@ -83,16 +84,6 @@ export default function Home() {
             {activeTab === 'info' && <WeddingInfo />}
             {activeTab === 'account' && <AccountInfo />}
             {activeTab === 'gallery' && <Gallery />}
-
-            {/* QR Code */}
-            {config.qrCode.enabled && (
-              <div className="flex flex-col items-center gap-4 my-8 pt-8 border-t" style={{ borderColor: config.theme.accentColor }}>
-                <p className="text-sm" style={{ color: config.theme.textColor }}>이 페이지를 공유해주세요</p>
-                <div className="bg-white p-4 rounded-lg">
-                  <QRCode value={config.qrCode.url} size={150} />
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Footer */}
