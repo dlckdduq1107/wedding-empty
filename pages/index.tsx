@@ -7,10 +7,7 @@ import Profile from '../components/Profile'
 import Gallery from '../components/Gallery'
 import DateCountdown from '../components/DateCountdown'
 import Location from '../components/Location'
-import Guestbook from '../components/Guestbook'
 import AccountInfo from '../components/AccountInfo'
-import Rsvp from '../components/Rsvp'
-import PhotoShare from '../components/PhotoShare'
 import Quote from '../components/Quote'
 import Footer from '../components/Footer'
 
@@ -37,10 +34,7 @@ export default function Home() {
           <Gallery />
           <DateCountdown />
           <Location />
-          <Guestbook />
           <AccountInfo />
-          <Rsvp />
-          <PhotoShare />
           <Quote />
           <Footer />
         </div>

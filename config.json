@@ -5,8 +5,8 @@
     "father": "신무철",
     "mother": "류미진",
     "phone": "010-6311-5308",
-    "fatherPhone": "010-3631-5308",
-    "motherPhone": "010-4620-5308",
+    "fatherPhone": "010-0000-0000",
+    "motherPhone": "010-0000-0000",
     "birthday": "1996.01.24",
     "photo": "/images/groom.jpg",
     "hashtags": ["#든든한 휴식처 & 에겐남", "#어디로 튈지 모르는 신부 제어기"]
@@ -17,8 +17,8 @@
     "father": "심태우(심영기)",
     "mother": "김은희",
     "phone": "010-7328-7006",
-    "fatherPhone": "010-2654-7001",
-    "motherPhone": "010-8109-3040",
+    "fatherPhone": "010-0000-0000",
+    "motherPhone": "010-0000-0000",
     "birthday": "1999.12.08",
     "photo": "/images/bride.jpg",
     "hashtags": ["#인간 비타민 & 테토녀", "#신랑 무표정 1초만에 녹이기"]
@@ -102,8 +102,7 @@
     ],
     "bride": [
       { "role": "신부 심은비", "bank": "농협은행", "accountHolder": "심은비", "accountNumber": "302-1103-2943-91" },
-      { "role": "신부 아버지 심태우", "bank": "신한은행", "accountHolder": "심태우(심병기)", "accountNumber": "110-076-287190" },
-      { "role": "신부 어머니 김은희", "bank": "농협은행", "accountHolder": "김지연", "accountNumber": "666-777-888999" }
+      { "role": "신부 아버지 심태우", "bank": "신한은행", "accountHolder": "심태우(심병기)", "accountNumber": "110-076-287190" }
     ]
   },
   "rsvp": {
