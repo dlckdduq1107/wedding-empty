@@ -2,7 +2,7 @@
   "groom": {
     "name": "신동현",
     "nameEn": "Donghyeon",
-    "father": "신무철",
+    "father": "신우철",
     "mother": "류미진",
     "phone": "010-6311-5308",
     "fatherPhone": "010-3631-5308",
@@ -14,7 +14,7 @@
   "bride": {
     "name": "심은비",
     "nameEn": "Eunbi",
-    "father": "심태우(심영기)",
+    "father": "심태우(심병기)",
     "mother": "김은희",
     "phone": "010-7328-7006",
     "fatherPhone": "010-2654-7001",
@@ -102,7 +102,7 @@
     ],
     "bride": [
       { "role": "신부 심은비", "bank": "농협은행", "accountHolder": "심은비", "accountNumber": "302-1103-2943-91" },
-      { "role": "신부 아버지 심태우", "bank": "신한은행", "accountHolder": "심태우(심병기)", "accountNumber": "110-076-287190" }
+      { "role": "신부 아버지 심태우(심병기)", "bank": "신한은행", "accountHolder": "심태우(심병기)", "accountNumber": "110-076-287190" }
     ]
   },
   "rsvp": {
