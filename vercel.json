@@ -1,4 +1,10 @@
 {
   "cleanUrls": false,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/card/JuDhccipUH",
+      "destination": "/card/JuDhccipUH/index.html"
+    }
+  ]
 }
