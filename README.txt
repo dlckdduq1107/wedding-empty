@@ -1,17 +1,23 @@
-Wedding invitation — GitHub / Vercel deployment package
+Wedding invitation — GitHub / Vercel final routed package
 
-Final changes:
-- Groom's mother name: 김은희
-- Groom's mother phone: 010-8109-3040
-- Account number and account section removed
-- Google OAuth access-token data removed
+IMPORTANT:
+The original URL is:
+https://wedding-empty.vercel.app/card/JuDhccipUH
+
+This package includes a Vercel rewrite so /card/JuDhccipUH serves index.html.
+
+Files:
+- index.html
+- vercel.json
+- README.txt
 
 GitHub:
-Upload index.html and vercel.json to the repository root.
+Replace the existing index.html and vercel.json in the repository root with these files,
+then push/commit them. Vercel should automatically redeploy.
 
-Vercel:
-Framework Preset: Other
-Build Command: blank
-Output Directory: .
-Install Command: blank
-Root Directory: ./
+Vercel settings:
+- Framework Preset: Other
+- Build Command: blank
+- Output Directory: .
+- Install Command: blank
+- Root Directory: ./
