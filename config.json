@@ -1,4 +1,7 @@
 {
+  "site": {
+    "url": "https://wedding-eight-sepia.vercel.app"
+  },
   "groom": {
     "name": "신동현",
     "nameEn": "Donghyeon",
