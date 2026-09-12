@@ -50,24 +50,44 @@ export default function Invitation() {
             marginTop: '1.25rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.6rem',
             fontSize: '0.82rem',
             color: '#555',
             background: '#fbf7f8',
             borderRadius: '0.5rem',
             padding: '1rem',
-            maxWidth: '280px',
+            maxWidth: '300px',
             marginLeft: 'auto',
             marginRight: 'auto'
           }}
         >
-          <a href={`tel:${groom.phone}`} style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <p style={{ fontSize: '0.7rem', color: '#b98a9a', marginBottom: '0.4rem', textAlign: 'left' }}>신랑측</p>
+          <a href={`tel:${groom.phone}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0' }}>
             <span>신랑 {groom.name}</span>
             <span style={{ color: config.theme.primaryColor }}>{groom.phone}</span>
           </a>
-          <a href={`tel:${bride.phone}`} style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <a href={`tel:${groom.fatherPhone}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0' }}>
+            <span>아버지 {groom.father}</span>
+            <span style={{ color: config.theme.primaryColor }}>{groom.fatherPhone}</span>
+          </a>
+          <a href={`tel:${groom.motherPhone}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0' }}>
+            <span>어머니 {groom.mother}</span>
+            <span style={{ color: config.theme.primaryColor }}>{groom.motherPhone}</span>
+          </a>
+
+          <div style={{ height: 1, background: '#eee', margin: '0.6rem 0' }} />
+
+          <p style={{ fontSize: '0.7rem', color: '#b98a9a', marginBottom: '0.4rem', textAlign: 'left' }}>신부측</p>
+          <a href={`tel:${bride.phone}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0' }}>
             <span>신부 {bride.name}</span>
             <span style={{ color: config.theme.primaryColor }}>{bride.phone}</span>
+          </a>
+          <a href={`tel:${bride.fatherPhone}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0' }}>
+            <span>아버지 {bride.father}</span>
+            <span style={{ color: config.theme.primaryColor }}>{bride.fatherPhone}</span>
+          </a>
+          <a href={`tel:${bride.motherPhone}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0' }}>
+            <span>어머니 {bride.mother}</span>
+            <span style={{ color: config.theme.primaryColor }}>{bride.motherPhone}</span>
           </a>
         </div>
       )}
